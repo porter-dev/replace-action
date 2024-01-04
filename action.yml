@@ -1,0 +1,17 @@
+name: 'Porter KV Replace Action'
+description: 'Replace keys with values in a given file'
+
+inputs:
+  key_values:
+    description: 'Comma-separated key-value pairs'
+    required: true
+  file_path:
+    description: 'Path to the file to be modified'
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Modify file if needed
+      shell: bash
+      run: replace.sh '${{ inputs.key_values }}' "${{ inputs.file_path }}"
