@@ -10,9 +10,8 @@ inputs:
     required: true
 
 runs:
-  using: composite
-  steps:
-    - name: Modify file if needed
-      shell: bash
-      main: replace.sh '${{ inputs.key_values }}' "${{ inputs.file_path }}"
-      # run: ./replace.sh '${{ inputs.key_values }}' "${{ inputs.file_path }}"
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.key_values }}
+    - ${{ inputs.file_path }}
