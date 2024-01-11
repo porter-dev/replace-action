@@ -14,4 +14,5 @@ runs:
   steps:
     - name: Modify file if needed
       shell: bash
-      run: ./replace.sh '${{ inputs.key_values }}' "${{ inputs.file_path }}"
+      main: replace.sh '${{ inputs.key_values }}' "${{ inputs.file_path }}"
+      # run: ./replace.sh '${{ inputs.key_values }}' "${{ inputs.file_path }}"
