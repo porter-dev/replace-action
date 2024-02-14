@@ -27,7 +27,7 @@ for pair in "${pairs[@]}"; do
     IFS='=' read -r key value <<< "$pair"
 
     # Use sed to replace the key with the value in the file
-    sed -i "s/$key/$value/g" "$filename"
+    sed -i "s|$key|$value|g" "$filename"
 done
 
 echo "Replacement completed."
